@@ -7,7 +7,7 @@
 
 <struts-config>
     <form-beans>
-    
+        <form-bean name="login_cliente" type="mvc.vista.formbeans.ValidarForm"/>
     </form-beans>
     
     <global-exceptions>
@@ -19,7 +19,15 @@
     </global-forwards>
 
     <action-mappings>
-        <action path="/Welcome" forward="/welcomeStruts.jsp"/>
+        
+        <action path="/login_cliente" input="cliente.jsp" name="login_cliente"
+                scope="request" validate="true">
+            
+            <forward name="login_cliente_ok" path="/cliene_ajustes.jsp" />
+        </action>
+        
+        
+        
     </action-mappings>
     
     <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
