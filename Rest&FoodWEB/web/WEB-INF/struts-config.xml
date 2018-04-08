@@ -7,6 +7,7 @@
 
 <struts-config>
     <form-beans>
+        <form-bean name="NewStrutsActionForm" type="mvc.vista.formbeans.NewStrutsActionForm"/>
         <form-bean name="login_cliente" type="mvc.vista.formbeans.ValidarForm"/>
     </form-beans>
     
@@ -15,15 +16,22 @@
     </global-exceptions>
 
     <global-forwards>
-        <forward name="welcome"  path="/Welcome.do"/>
+        
     </global-forwards>
 
     <action-mappings>
         
         <action path="/login_cliente" input="cliente.jsp" name="login_cliente"
-                scope="request" validate="true">
+                scope="session" validate="true"
+                type="mvc.controller.actions.LoginClienteAction">
             
-            <forward name="login_cliente_ok" path="/cliene_ajustes.jsp" />
+            <exception type="mvc.controller.exceptions.ContraseñaException"
+                path="/cliente.jsp" key="errors.credentials" />
+            
+            <exception type="mvc.controller.exceptions.EmailException"
+                path="/cliente.jsp" key="errors.email" />
+            
+            <forward name="login_cliente_ok" path="/cliente_ajustes.jsp" />
         </action>
         
         

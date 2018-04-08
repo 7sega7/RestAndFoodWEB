@@ -7,7 +7,7 @@
         <title>APLICACION INICIAL STRUTS MVC</title>
     </head>
     <body style="background-color: bisque">
-
+        <html:errors/>
         <jsp:include page="header.jsp" flush="true" />
 
         <html:form action="login_cliente.do" focus="correo" method="post">

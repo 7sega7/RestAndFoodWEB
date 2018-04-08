@@ -1,9 +1,11 @@
 package mvc.vista.formbeans;
 
 import javax.servlet.http.HttpServletRequest;
+import org.apache.struts.Globals;
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
+import org.apache.struts.action.ActionMessage;
 
 public class LoginClienteForm extends ActionForm{
     
@@ -32,9 +34,17 @@ public class LoginClienteForm extends ActionForm{
     @Override
     public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
         
+        ActionErrors errors = new ActionErrors();
         
+        if(getCorreo().isEmpty()){
+            errors.add(Globals.MESSAGE_KEY, new ActionMessage("errors.field", "correo"));
+        }
+        
+        if(getContraseña().isEmpty()){
+            errors.add(Globals.MESSAGE_KEY, new ActionMessage("errors.field", "contraseña"));
+        }
+    
+        return errors;
     }
-    
-    
     
 }
