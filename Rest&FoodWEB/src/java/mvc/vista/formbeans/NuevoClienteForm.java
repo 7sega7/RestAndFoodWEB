@@ -20,7 +20,7 @@ public class NuevoClienteForm extends ActionForm {
     
     private String direccion;
     
-    private int postal;
+    private Integer postal;
     
     private String ciudad;
     
@@ -64,7 +64,7 @@ public class NuevoClienteForm extends ActionForm {
         return postal;
     }
 
-    public void setPostal(int postal) {
+    public void setPostal(Integer postal) {
         this.postal = postal;
     }
 
@@ -115,6 +115,20 @@ public class NuevoClienteForm extends ActionForm {
             recuperado del fichero de propiedades de la aplicacion. Como en este
             caso tiene un parametro de entrada pasamos un segundo valor
         */
+        Integer postal = null;
+        
+        try {
+            if(request.getParameter("postal")!=null) {
+                postal = new Integer(request.getParameter("postal"));
+            }
+            } catch (NumberFormatException e){
+                 
+               // errors.add("postal", new ActionMessage("error.postal"));
+                errors.add(Globals.MESSAGE_KEY, new ActionMessage(
+                    "errors.field", "postal"));
+                    }
+        
+        
         if(getNombre().isEmpty()) {
             errors.add(Globals.MESSAGE_KEY, new ActionMessage(
                     "errors.field", "nombre"));
