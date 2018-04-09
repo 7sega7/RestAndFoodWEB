@@ -10,7 +10,7 @@
         <form-bean name="NuevoClienteForm" type="mvc.vista.formbeans.NuevoClienteForm"/>
         <form-bean name="BuscarRestaurante" type="mvc.vista.formbeans.BuscarRestaurante"/>
         <form-bean name="NewStrutsActionForm" type="mvc.vista.formbeans.NewStrutsActionForm"/>
-        <form-bean name="login_cliente" type="mvc.vista.formbeans.ValidarForm"/>
+        <form-bean name="login_cliente" type="mvc.vista.formbeans.LoginClienteForm"/>
     </form-beans>
     
     <global-exceptions>
@@ -23,17 +23,17 @@
 
     <action-mappings>
         
-        <action path="/login_cliente" input="cliente.jsp" name="login_cliente"
-                scope="session" validate="true"
+        <action path="/datos_login_cliente" input="/cliente.jsp" name="login_cliente"
+                scope="request" validate="true"
                 type="mvc.controller.actions.LoginClienteAction">
             
             <exception type="mvc.controller.exceptions.ContraseñaException"
                 path="/cliente.jsp" key="errors.credentials" />
             
             <exception type="mvc.controller.exceptions.EmailException"
-                path="/cliente.jsp" key="errors.email" />
+                path="/cliente.jsp" key="errors.email" /> 
             
-            <forward name="login_cliente_ok" path="/cliente_ajustes.jsp" />
+            <forward name="login_cliente_ok" path="/cliente_ajustes.jsp"/>
         </action>
         <action input="/" name="NuevoClienteForm" path="/nuevocliente" scope="session" type="mvc.controller.actions.NuevoClienteAction"/>
         
