@@ -7,6 +7,8 @@
 
 <struts-config>
     <form-beans>
+        <form-bean name="NuevoClienteForm" type="mvc.vista.formbeans.NuevoClienteForm"/>
+        <form-bean name="BuscarRestaurante" type="mvc.vista.formbeans.BuscarRestaurante"/>
         <form-bean name="NewStrutsActionForm" type="mvc.vista.formbeans.NewStrutsActionForm"/>
         <form-bean name="login_cliente" type="mvc.vista.formbeans.ValidarForm"/>
     </form-beans>
@@ -33,6 +35,7 @@
             
             <forward name="login_cliente_ok" path="/cliente_ajustes.jsp" />
         </action>
+        <action input="/" name="NuevoClienteForm" path="/nuevocliente" scope="session" type="mvc.controller.actions.NuevoClienteAction"/>
         
         
         

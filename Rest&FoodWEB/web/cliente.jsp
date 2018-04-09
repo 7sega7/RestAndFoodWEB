@@ -18,6 +18,15 @@
             <html:text property="pass" size="30" />
             <html:submit value="INICIAR SESION" />
         </html:form>
+            <br><br><br>
+            <div>
+                ¿Eres nuevo cliente?
+                <a class="boton-cliente" href="nuevo_cliente.jsp" > Nuevo Cliente </a>
+            </div>
+            
+            
+            
+            
 
         </body>
 </html:html>

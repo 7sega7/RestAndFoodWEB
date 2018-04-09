@@ -3,6 +3,7 @@
   <persistence-unit name="Rest_FoodWEBPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>mvc.model.entidades.Cliente</class>
+    <class>mvc.model.entidades.Restaurante</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://sql11.freemysqlhosting.net:3306/sql11230637"/>
