@@ -35,7 +35,13 @@
             
             <forward name="login_cliente_ok" path="/cliente_ajustes.jsp"/>
         </action>
-        <action input="/" name="NuevoClienteForm" path="/nuevocliente" scope="session" type="mvc.controller.actions.NuevoClienteAction"/>
+        
+        <action path="/datos_crear_cliente" input="/nuevo_cliente.jsp" name="NuevoClienteForm"
+                scope="request" validate="true"
+                type="mvc.controller.actions.NuevoClienteAction">
+            
+            <forward name="crear_cliente_ok" path="/cliente_ajustes.jsp"/>
+        </action>
         
         
         
