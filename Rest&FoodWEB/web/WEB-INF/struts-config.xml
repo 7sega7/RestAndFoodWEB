@@ -27,11 +27,11 @@
                 scope="request" validate="true"
                 type="mvc.controller.actions.LoginClienteAction">
             
-            <exception type="mvc.controller.exceptions.ContraseñaException"
-                path="/cliente.jsp" key="errors.credentials" />
-            
             <exception type="mvc.controller.exceptions.EmailException"
                 path="/cliente.jsp" key="errors.email" /> 
+            
+            <exception type="mvc.controller.exceptions.ContraseñaException"
+                path="/cliente.jsp" key="errors.credentials" />
             
             <forward name="login_cliente_ok" path="/cliente_ajustes.jsp"/>
         </action>

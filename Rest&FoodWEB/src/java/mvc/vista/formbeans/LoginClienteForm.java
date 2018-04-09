@@ -10,7 +10,7 @@ import org.apache.struts.action.ActionMessage;
 public class LoginClienteForm extends ActionForm{
     
     private String correo = "";
-    private String contraseña = "";
+    private String contrasena = "";
 
     public LoginClienteForm() {
     }
@@ -23,12 +23,12 @@ public class LoginClienteForm extends ActionForm{
         this.correo = correo;
     }
 
-    public String getContraseña() {
-        return contraseña;
+    public String getContrasena() {
+        return contrasena;
     }
 
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
     }
 
     @Override
@@ -40,8 +40,8 @@ public class LoginClienteForm extends ActionForm{
             errors.add(Globals.MESSAGE_KEY, new ActionMessage("errors.field", "correo"));
         }
         
-        if(getContraseña().isEmpty()){
-            errors.add(Globals.MESSAGE_KEY, new ActionMessage("errors.field", "contraseña"));
+        if(getContrasena().isEmpty()){
+            errors.add(Globals.MESSAGE_KEY, new ActionMessage("errors.field", "contrasena"));
         }
     
         return errors;

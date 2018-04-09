@@ -14,7 +14,7 @@
                                  scope="request" />
         <h2>Datos procesados</h2>
         <h4>Correo: <jsp:getProperty name="login_cliente" property="correo" /></h4>
-        <h4>Contraseña: <jsp:getProperty name="login_cliente" property="contraseña" /></h4>
+        <h4>Contraseña: <jsp:getProperty name="login_cliente" property="contrasena" /></h4>
         
     </body>
 </html:html>

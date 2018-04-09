@@ -15,8 +15,8 @@
             <label for="correo">Correo electronico:</label>
             <html:text property="correo" size="30" />
             <br><br>
-            <label for="contraseña">Contraseña:</label>
-            <html:text property="contraseña" size="30" />
+            <label for="contrasena">Contraseña:</label>
+            <html:text property="contrasena" size="30" />
             <html:submit value="INICIAR SESION" />
         </html:form>
             <br><br><br>

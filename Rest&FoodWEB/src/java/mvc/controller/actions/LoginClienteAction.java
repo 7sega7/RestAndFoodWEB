@@ -18,19 +18,15 @@ public class LoginClienteAction extends org.apache.struts.action.Action{
         LoginClienteForm clienteForm = (LoginClienteForm) form;
         
         String correo = clienteForm.getCorreo();
-        String contraseña = clienteForm.getContraseña();
+        String contrasena = clienteForm.getContrasena();
         
         if(!correo.endsWith(".es") && !correo.endsWith(".org")){
             throw new EmailException();
         }
         
-        if(!contraseña.startsWith("a")){
+        if(!contrasena.startsWith("a")){
             throw new ContraseñaException();
         }
-        
-        clienteForm.setContraseña(contraseña);
-        clienteForm.setCorreo(correo);
-        
         
         return mapping.findForward("login_cliente_ok");
         
