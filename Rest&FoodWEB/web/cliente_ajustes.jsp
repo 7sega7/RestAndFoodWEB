@@ -10,11 +10,17 @@
 
     </head>
     <body>
-        <jsp:useBean id="login_cliente" class="mvc.vista.formbeans.LoginClienteForm"
-                                 scope="request" />
-        <h2>Datos procesados</h2>
-        <h4>Correo: <jsp:getProperty name="login_cliente" property="correo" /></h4>
-        <h4>Contraseña: <jsp:getProperty name="login_cliente" property="contrasena" /></h4>
+        <jsp:include page="header.jsp" flush="true" />
         
-    </body>
+        <table>
+            <th><h2>Cambie aqui sus datos de configuracion:</h2></th>
+            <tr><td><h4>Correo: <%= request.getAttribute("correo")%></h4></td></tr>
+            <tr><td><h4>Contraseña: <%= request.getAttribute("contrasena")%></h4></td></tr>
+            <tr><td><h4>Nombre: <%= request.getAttribute("nombre")%></h4></td></tr>
+            <tr><td><h4>Apellidos: <%= request.getAttribute("apell")%></h4></td></tr>
+            <tr><td><h4>Direccion: <%= request.getAttribute("dire")%></h4></td></tr>
+            <tr><td><h4>Codigo Postal: <%= request.getAttribute("cod_postal")%></h4></td></tr>
+            <tr><td><h4>Ciudad: <%= request.getAttribute("ciudad")%></h4></td></tr>
+    </table>
+</body>
 </html:html>
