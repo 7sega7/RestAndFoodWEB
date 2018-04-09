@@ -6,7 +6,6 @@
 package mvc.controller.dao;
 
 import java.io.Serializable;
-import java.sql.SQLException;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -15,8 +14,6 @@ import javax.persistence.EntityNotFoundException;
 import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
-import mvc.controller.dao.exceptions.NonexistentEntityException;
-import mvc.controller.exceptions.LoginException;
 import mvc.model.entidades.Cliente;
 
 /**
@@ -40,27 +37,6 @@ public class ClienteJpaController implements Serializable {
             em = getEntityManager();
             em.getTransaction().begin();
             em.persist(cliente);
-            em.getTransaction().commit();
-        } finally {
-            if (em != null) {
-                em.close();
-            }
-        }
-    }
-
-    public void destroy(Integer id) throws NonexistentEntityException {
-        EntityManager em = null;
-        try {
-            em = getEntityManager();
-            em.getTransaction().begin();
-            Cliente cliente;
-            try {
-                cliente = em.getReference(Cliente.class, id);
-                cliente.getIdCliente();
-            } catch (EntityNotFoundException enfe) {
-                throw new NonexistentEntityException("The cliente with id " + id + " no longer exists.", enfe);
-            }
-            em.remove(cliente);
             em.getTransaction().commit();
         } finally {
             if (em != null) {
