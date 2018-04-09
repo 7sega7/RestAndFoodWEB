@@ -45,14 +45,6 @@ public class ClienteJpaController implements Serializable {
         }
     }
 
-    public List<Cliente> findClienteEntities() {
-        return findClienteEntities(true, -1, -1);
-    }
-
-    public List<Cliente> findClienteEntities(int maxResults, int firstResult) {
-        return findClienteEntities(false, maxResults, firstResult);
-    }
-
     private List<Cliente> findClienteEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
@@ -74,7 +66,7 @@ public class ClienteJpaController implements Serializable {
         try {
             Query query = em.createNamedQuery("Cliente.loginCliente");
             query.setParameter("correoCliente", correo);
-            query.setParameter("contraseña", contrasena);
+            query.setParameter("contrasena", contrasena);
             Cliente c = (Cliente) query.getSingleResult();
             return c;
         } finally {

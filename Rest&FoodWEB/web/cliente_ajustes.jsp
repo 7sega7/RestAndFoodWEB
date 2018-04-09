@@ -1,3 +1,4 @@
+<%@page import="mvc.model.entidades.Cliente"%>
 <%@page import="mvc.vista.formbeans.LoginClienteForm"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
@@ -14,13 +15,14 @@
         
         <table>
             <th><h2>Cambie aqui sus datos de configuracion:</h2></th>
-            <tr><td><h4>Correo: <%= request.getAttribute("correo")%></h4></td></tr>
-            <tr><td><h4>Contraseña: <%= request.getAttribute("contrasena")%></h4></td></tr>
-            <tr><td><h4>Nombre: <%= request.getAttribute("nombre")%></h4></td></tr>
-            <tr><td><h4>Apellidos: <%= request.getAttribute("apell")%></h4></td></tr>
-            <tr><td><h4>Direccion: <%= request.getAttribute("dire")%></h4></td></tr>
-            <tr><td><h4>Codigo Postal: <%= request.getAttribute("cod_postal")%></h4></td></tr>
-            <tr><td><h4>Ciudad: <%= request.getAttribute("ciudad")%></h4></td></tr>
+            <% Cliente c = (Cliente) request.getSession().getAttribute("usuario"); %>
+            <tr><h4><td>Correo:</td><td><%= c.getCorreoCliente()%></td></h4></tr>
+            <tr><h4><td>Contraseña:</td><td> <%= c.getContrasena()%></td></h4></tr>
+            <tr><h4><td>Nombre:</td><td> <%= c.getNombreCliente()%></td></h4></tr>
+            <tr><h4><td>Apellidos:</td><td> <%= c.getApellidosCliente()%></td></h4></tr>
+            <tr><h4><td>Direccion:</td><td> <%= c.getDireccionCliente()%></td></h4></tr>
+            <tr><h4><td>Codigo Postal:</td><td> <%= c.getCodigoPostal()%></td></h4></tr>
+            <tr><h4><td>Ciudad:</td><td> <%= c.getCiudadCliente()%></td></h4></tr>
     </table>
 </body>
 </html:html>

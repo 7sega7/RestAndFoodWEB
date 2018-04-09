@@ -9,8 +9,8 @@
     <form-beans>
         <form-bean name="NuevoClienteForm" type="mvc.vista.formbeans.NuevoClienteForm"/>
         <form-bean name="BuscarRestaurante" type="mvc.vista.formbeans.BuscarRestaurante"/>
-        <form-bean name="NewStrutsActionForm" type="mvc.vista.formbeans.NewStrutsActionForm"/>
-        <form-bean name="login_cliente" type="mvc.vista.formbeans.LoginClienteForm"/>
+        <form-bean name="BuscarOferta" type="mvc.vista.formbeans.BuscarOfertaForm"/>
+        <form-bean name="LoginCliente" type="mvc.vista.formbeans.LoginClienteForm"/>
     </form-beans>
     
     <global-exceptions>
@@ -23,8 +23,8 @@
 
     <action-mappings>
         
-        <action path="/datos_login_cliente" input="/cliente.jsp" name="login_cliente"
-                scope="request" validate="true"
+        <action path="/datos_login_cliente" input="/cliente.jsp" name="LoginCliente"
+                scope="session" validate="true"
                 type="mvc.controller.actions.LoginClienteAction">
             
             <exception type="mvc.controller.exceptions.EmailException"
@@ -33,17 +33,22 @@
             <exception type="mvc.controller.exceptions.ContraseñaException"
                 path="/cliente.jsp" key="errors.credentials" />
             
-            <forward name="login_cliente_ok" path="/cliente_ajustes.jsp"/>
+            <forward name="login_cliente_ok" path="/cliente_ajustes.jsp" redirect="true"/>
         </action>
         
         <action path="/datos_crear_cliente" input="/nuevo_cliente.jsp" name="NuevoClienteForm"
-                scope="request" validate="true"
+                scope="session" validate="true"
                 type="mvc.controller.actions.NuevoClienteAction">
             
             <forward name="crear_cliente_ok" path="/cliente_ajustes.jsp"/>
         </action>
         
-        
+        <action path="/busqueda_oferta" input="/ofertas.jsp" name="BuscarOfertaForm"
+                scope="session" validate="true"
+                type="mvc.controller.actions.BuscarOfertaAction">
+            
+            <forward name="crear_cliente_ok" path="/cliente_ajustes.jsp"/>
+        </action>
         
     </action-mappings>
     

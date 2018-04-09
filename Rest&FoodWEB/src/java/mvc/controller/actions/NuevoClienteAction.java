@@ -2,6 +2,7 @@ package mvc.controller.actions;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import mvc.controller.dao.ClienteJpaController;
 import mvc.model.entidades.Cliente;
 import mvc.vista.formbeans.NuevoClienteForm;
@@ -18,6 +19,8 @@ public class NuevoClienteAction extends org.apache.struts.action.Action {
 
         NuevoClienteForm newclienteform = (NuevoClienteForm) form;
 
+        HttpSession session = request.getSession();
+
         String nombre = newclienteform.getNombre();
         String apellidos = newclienteform.getApellidos();
         String email = newclienteform.getEmail();
@@ -25,19 +28,20 @@ public class NuevoClienteAction extends org.apache.struts.action.Action {
         String ciudad = newclienteform.getCiudad();
         String password = newclienteform.getPassword();
         String postal = newclienteform.getPostal();
-        
+
         ClienteJpaController controller = new ClienteJpaController();
+
+        Cliente c = null;
+
         try {
-            
-            
-            
-            Cliente c = new Cliente(email, nombre, apellidos, direccion, 
+
+            c = new Cliente(email, nombre, apellidos, direccion,
                     Integer.parseInt(postal), ciudad, password);
-            
+
             controller.create(c);
 
             request.setAttribute("correo", c.getCorreoCliente());
-            request.setAttribute("contrasena", c.getContraseña());
+            request.setAttribute("contrasena", c.getContrasena());
             request.setAttribute("nombre", c.getNombreCliente());
             request.setAttribute("apell", c.getApellidosCliente());
             request.setAttribute("dire", c.getDireccionCliente());
@@ -47,7 +51,8 @@ public class NuevoClienteAction extends org.apache.struts.action.Action {
         } catch (Exception ex) {
             ex.printStackTrace(System.out);
         }
-
+        session.setAttribute("usuario", c);
+        
         return mapping.findForward("crear_cliente_ok");
     }
 }
