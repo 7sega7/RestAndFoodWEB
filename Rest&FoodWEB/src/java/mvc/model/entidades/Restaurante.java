@@ -26,7 +26,7 @@ import javax.persistence.Table;
     @NamedQuery(name = "Restaurante.findAll", query = "SELECT r FROM Restaurante r")
     , @NamedQuery(name = "Restaurante.findByIdRestaurante", query = "SELECT r FROM Restaurante r WHERE r.idRestaurante = :idRestaurante")
     , @NamedQuery(name = "Restaurante.findByDireccion", query = "SELECT r FROM Restaurante r WHERE r.direccion = :direccion")
-    , @NamedQuery(name = "Restaurante.findByNombre", query = "SELECT r FROM Restaurante r WHERE r.nombre = :nombre")
+    , @NamedQuery(name = "Restaurante.findByNombre", query = "SELECT DISTINCT r FROM Restaurante r WHERE r.nombre LIKE CONCAT('%',:nombre,'%')")
     , @NamedQuery(name = "Restaurante.findByCodigoPostal", query = "SELECT r FROM Restaurante r WHERE r.codigoPostal = :codigoPostal")
     , @NamedQuery(name = "Restaurante.findByCiudad", query = "SELECT r FROM Restaurante r WHERE r.ciudad = :ciudad")})
 public class Restaurante implements Serializable {

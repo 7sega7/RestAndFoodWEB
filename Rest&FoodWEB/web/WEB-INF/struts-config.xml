@@ -8,7 +8,7 @@
 <struts-config>
     <form-beans>
         <form-bean name="NuevoClienteForm" type="mvc.vista.formbeans.NuevoClienteForm"/>
-        <form-bean name="BuscarRestaurante" type="mvc.vista.formbeans.BuscarRestaurante"/>
+        <form-bean name="BuscarRestaurante" type="mvc.vista.formbeans.BuscarRestauranteForm"/>
         <form-bean name="BuscarOferta" type="mvc.vista.formbeans.BuscarOfertaForm"/>
         <form-bean name="LoginCliente" type="mvc.vista.formbeans.LoginClienteForm"/>
     </form-beans>
@@ -49,6 +49,13 @@
                 type="mvc.controller.actions.BuscarOfertaAction">
             
             <forward name="busqueda_titulo_ok" path="/ofertas.jsp"/>
+        </action>
+        
+        <action path="/busqueda_restaurante" input="/restaurante" name="BuscarRestaurante"
+                scope="session" validate="false"
+                type="mvc.controller.actions.BuscarRestauranteAction">
+            
+            <forward name="busqueda_nombre_ok" path="/restaurante.jsp"/>
         </action>
         
         <action path="/logout" type="mvc.controller.actions.DesconectarAction"/>
