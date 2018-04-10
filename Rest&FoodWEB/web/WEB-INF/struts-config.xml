@@ -44,11 +44,11 @@
             <forward name="crear_cliente_ok" path="/cliente_ajustes.jsp"/>
         </action>
         
-        <action path="/busqueda_oferta" input="/ofertas.jsp" name="BuscarOfertaForm"
-                scope="session" validate="true"
+        <action path="/busqueda_oferta" input="/ofertas.jsp" name="BuscarOferta"
+                scope="session" validate="false"
                 type="mvc.controller.actions.BuscarOfertaAction">
             
-            <forward name="crear_cliente_ok" path="/cliente_ajustes.jsp;sessionId=request.getSession().getId()"/>
+            <forward name="busqueda_titulo_ok" path="/ofertas.jsp"/>
         </action>
         
         <action path="/logout" type="mvc.controller.actions.DesconectarAction"/>

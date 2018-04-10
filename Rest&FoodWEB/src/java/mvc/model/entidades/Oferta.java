@@ -23,7 +23,9 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "oferta")
 @NamedQueries({
-    @NamedQuery(name = "Oferta.findAll", query = "SELECT o FROM Oferta o")})
+    @NamedQuery(name = "Oferta.findAll", query = "SELECT o FROM Oferta o")
+    ,@NamedQuery(name = "Oferta.findByTitulo", query = "SELECT DISTINCT o "
+            + "FROM Oferta o WHERE o.titulo LIKE CONCAT('%',:titulo,'%')")})
 public class Oferta implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -136,5 +138,5 @@ public class Oferta implements Serializable {
     public String toString() {
         return "mvc.model.entidades.Oferta[ idOferta=" + idOferta + " ]";
     }
-    
+
 }

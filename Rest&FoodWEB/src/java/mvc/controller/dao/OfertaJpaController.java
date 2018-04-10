@@ -11,6 +11,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
+import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import mvc.model.entidades.Oferta;
@@ -21,8 +22,8 @@ import mvc.model.entidades.Oferta;
  */
 public class OfertaJpaController implements Serializable {
 
-    public OfertaJpaController(EntityManagerFactory emf) {
-        this.emf = emf;
+    public OfertaJpaController() {
+        this.emf = Persistence.createEntityManagerFactory("PU");
     }
     private EntityManagerFactory emf = null;
 
@@ -44,15 +45,15 @@ public class OfertaJpaController implements Serializable {
         }
     }
     
-    public List<Oferta> findOfertaEntities() {
-        return findOfertaEntities(true, -1, -1);
+    public List<Oferta> findOfertas() {
+        return findOfertas(true, -1, -1);
     }
 
-    public List<Oferta> findOfertaEntities(int maxResults, int firstResult) {
-        return findOfertaEntities(false, maxResults, firstResult);
+    public List<Oferta> findOfertas(int maxResults, int firstResult) {
+        return findOfertas(false, maxResults, firstResult);
     }
 
-    private List<Oferta> findOfertaEntities(boolean all, int maxResults, int firstResult) {
+    private List<Oferta> findOfertas(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
             CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
@@ -68,10 +69,12 @@ public class OfertaJpaController implements Serializable {
         }
     }
 
-    public Oferta findOferta(Integer id) {
+    public List<Oferta> findOfertaTitulo(String titulo) {
         EntityManager em = getEntityManager();
         try {
-            return em.find(Oferta.class, id);
+            Query query = em.createNamedQuery("Oferta.findByTitulo");
+            query.setParameter("titulo", titulo);
+            return query.getResultList();
         } finally {
             em.close();
         }
