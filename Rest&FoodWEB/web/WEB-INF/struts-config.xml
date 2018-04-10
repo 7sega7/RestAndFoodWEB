@@ -18,7 +18,7 @@
     </global-exceptions>
 
     <global-forwards>
-        
+        <forward name="desconexion" path="/index.jsp" />
     </global-forwards>
 
     <action-mappings>
@@ -33,7 +33,8 @@
             <exception type="mvc.controller.exceptions.ContraseñaException"
                 path="/cliente.jsp" key="errors.credentials" />
             
-            <forward name="login_cliente_ok" path="/cliente_ajustes.jsp" redirect="true"/>
+            <forward name="login_cliente_ok" path="/cliente_ajustes.jsp" 
+                     redirect="true"/>
         </action>
         
         <action path="/datos_crear_cliente" input="/nuevo_cliente.jsp" name="NuevoClienteForm"
@@ -47,9 +48,10 @@
                 scope="session" validate="true"
                 type="mvc.controller.actions.BuscarOfertaAction">
             
-            <forward name="crear_cliente_ok" path="/cliente_ajustes.jsp"/>
+            <forward name="crear_cliente_ok" path="/cliente_ajustes.jsp;sessionId=request.getSession().getId()"/>
         </action>
         
+        <action path="/logout" type="mvc.controller.actions.DesconectarAction"/>
     </action-mappings>
     
     <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>

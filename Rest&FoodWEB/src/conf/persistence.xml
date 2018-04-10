@@ -4,6 +4,7 @@
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>mvc.model.entidades.Cliente</class>
     <class>mvc.model.entidades.Restaurante</class>
+    <class>mvc.model.entidades.Oferta</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/restandfood?zeroDateTimeBehavior=convertToNull"/>

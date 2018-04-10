@@ -18,13 +18,12 @@ import javax.persistence.Table;
 
 /**
  *
- * @author 7sega7
+ * @author Grupo 1 Java
  */
 @Entity
 @Table(name = "oferta")
 @NamedQueries({
-    @NamedQuery(name = "Oferta.findAll", query = "SELECT o FROM Oferta o"),
-    @NamedQuery(name = "Oferta.findByTitulo", query = "SELECT o FROM Oferta o WHERE o.titulo = :titulo")})
+    @NamedQuery(name = "Oferta.findAll", query = "SELECT o FROM Oferta o")})
 public class Oferta implements Serializable {
 
     private static final long serialVersionUID = 1L;

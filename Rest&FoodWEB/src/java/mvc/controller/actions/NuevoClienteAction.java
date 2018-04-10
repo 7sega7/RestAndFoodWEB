@@ -41,7 +41,7 @@ public class NuevoClienteAction extends org.apache.struts.action.Action {
             controller.create(c);
 
             request.setAttribute("correo", c.getCorreoCliente());
-            request.setAttribute("contrasena", c.getContrasena());
+            request.setAttribute("contrasena", c.getContraseña());
             request.setAttribute("nombre", c.getNombreCliente());
             request.setAttribute("apell", c.getApellidosCliente());
             request.setAttribute("dire", c.getDireccionCliente());

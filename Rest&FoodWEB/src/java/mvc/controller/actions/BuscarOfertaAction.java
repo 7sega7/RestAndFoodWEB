@@ -16,17 +16,17 @@ public class BuscarOfertaAction extends org.apache.struts.action.Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response) throws Exception {
 
-        BuscarOfertaForm clienteForm = (BuscarOfertaForm) form;
+        BuscarOfertaForm buscarForm = (BuscarOfertaForm) form;
 
         HttpSession session = request.getSession();
 
-        String busqueda = clienteForm.getBusqueda();
+        String busqueda = buscarForm.getBusqueda();
 
         ClienteJpaController controller = new ClienteJpaController();
 
         Cliente c = null;
         try {
-            c = controller.loginCliente(correo, contrasena);
+           
 
         } catch (Exception ex) {
             ex.printStackTrace(System.out);
