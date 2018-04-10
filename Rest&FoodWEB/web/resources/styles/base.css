@@ -27,19 +27,5 @@ body {
 }
 
 
-.page-nav {
-    /* Color de fondo */
-    background-color: #1D1D1D;
-    /* Altura de la barra 60 pixels */
-    line-height: 6rem;
-    /* Tamaño de fuente por defecto 16 pixels*/
-    font-size: 1.6rem;
-}
 
-.page-nav a {
-    /* Color de texto blanco */
-    color: #FFFFFF;
-    /* Separacion hasta el margen del texto de los enlaces 10 pixels */
-    padding: 1rem;
-}
 
