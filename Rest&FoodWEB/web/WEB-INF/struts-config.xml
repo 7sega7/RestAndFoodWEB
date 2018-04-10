@@ -13,6 +13,7 @@
         <form-bean name="LoginCliente" type="mvc.vista.formbeans.LoginClienteForm"/>
         <form-bean name="BuscarOfertaCliente" type="mvc.vista.formbeans.BuscarOfertaClienteForm"/>
         <form-bean name="BuscarRestauranteCliente" type="mvc.vista.formbeans.BuscarRestauranteClienteForm"/>
+        <form-bean name="Empresa" type="mvc.vista.formbeans.EmpresaForm"/>
     </form-beans>
     
     <global-exceptions>
@@ -43,18 +44,24 @@
                 scope="session" validate="true"
                 type="mvc.controller.actions.NuevoClienteAction">
             
+            <exception type="mvc.controller.exceptions.EmailException"
+                path="/nuevo_cliente.jsp" key="errors.createcliente" /> 
+            
+            <exception type="mvc.controller.exceptions.ContraseñaException"
+                path="/nuevo_cliente.jsp" key="errors.repass" />
+            
             <forward name="crear_cliente_ok" path="/cliente_ajustes.jsp"/>
         </action>
         
         <action path="/busqueda_oferta" input="/ofertas.jsp" name="BuscarOferta"
-                scope="session" validate="false"
+                scope="request" validate="false"
                 type="mvc.controller.actions.BuscarOfertaAction">
             
             <forward name="busqueda_titulo_ok" path="/ofertas.jsp"/>
         </action>
         
         <action path="/busqueda_restaurante" input="/restaurante" name="BuscarRestaurante"
-                scope="session" validate="false"
+                scope="request" validate="false"
                 type="mvc.controller.actions.BuscarRestauranteAction">
             
             <forward name="busqueda_nombre_ok" path="/restaurante.jsp"/>
@@ -70,6 +77,13 @@
         <action path="/busqueda_restaurante_cliente" input="/restaurante_cliente" name="BuscarRestauranteCliente"
                 scope="session" validate="false"
                 type="mvc.controller.actions.BuscarRestauranteClienteAction">
+            
+            <forward name="busqueda_nombre_cliente_ok" path="/restaurante_cliente.jsp"/>
+        </action>
+        
+        <action path="/datos_empresa" input="/empresa" name="Empresa"
+                scope="request" validate="true"
+                type="mvc.controller.actions.EmpresaeAction">
             
             <forward name="busqueda_nombre_cliente_ok" path="/restaurante_cliente.jsp"/>
         </action>

@@ -1,3 +1,4 @@
+<%@page import="mvc.model.entidades.Cliente"%>
 <%@page import="mvc.model.entidades.Oferta"%>
 <%@page import="java.util.List"%>
 <%@page import="mvc.controller.dao.OfertaJpaController"%>
@@ -31,16 +32,17 @@
                                     + of.getTipoOferta() + " ,Fecha de Inicio: " + of.getFechaInicio() + "</li>");
                         }
                     } else {
-                        out.println("NO SE HA OBTENIDO NINGUN RESULTADO CON " + 
-                                request.getAttribute("paramBusqueda") + "\nPOR FAVOR, REVISE SU BUSQUEDA");
+                        out.println("NO SE HA OBTENIDO NINGUN RESULTADO CON "
+                                + request.getAttribute("paramBusqueda") + "\nPOR FAVOR, REVISE SU BUSQUEDA");
                     }
                 } else {
+                    Cliente c = (Cliente) request.getSession().getAttribute("usuario");
                     OfertaJpaController controller = new OfertaJpaController();
-                    List<Oferta> ofertas = controller.findOfertas();
-
+                    List<Oferta> ofertas = controller.findOfertaToCliente(c.getCodigoPostal(), c.getCiudadCliente());
+                    out.println("OFERTAS CERCA DE TI");
                     for (Oferta of : ofertas) {
-                        out.println("<li>Titulo de la oferta: " + of.getTitulo() + " ,Tipo de oferta: "
-                                    + of.getTipoOferta() + " ,Fecha de Inicio: " + of.getFechaInicio() + "</li>");
+                        out.println("<li>Titulo de la oferta: " + of.getTitulo() + ", Tipo de oferta: "
+                                + of.getTipoOferta() + ", Fecha de Inicio: " + of.getFechaInicio() + "</li>");
 
                     }
                 }

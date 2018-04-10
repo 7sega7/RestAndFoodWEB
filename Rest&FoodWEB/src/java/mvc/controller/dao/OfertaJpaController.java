@@ -6,15 +6,17 @@
 package mvc.controller.dao;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
-import javax.persistence.EntityNotFoundException;
 import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import mvc.model.entidades.Oferta;
+import static mvc.model.entidades.Oferta_.titulo;
+import mvc.model.entidades.Restaurante;
 
 /**
  *
@@ -75,6 +77,25 @@ public class OfertaJpaController implements Serializable {
             Query query = em.createNamedQuery("Oferta.findByTitulo");
             query.setParameter("titulo", titulo);
             return query.getResultList();
+        } finally {
+            em.close();
+        }
+    }
+    
+    public List<Oferta> findOfertaToCliente(Integer postal, String ciudad) {
+        EntityManager em = getEntityManager();
+        try {
+            Query query = em.createNamedQuery("Restaurante.findByCodigoPostalAndCiudad");
+            query.setParameter("codigoPostal", postal);
+            query.setParameter("ciudad", ciudad);
+            List<Restaurante> restaurantes = query.getResultList();
+            List<Oferta> ofertas = new ArrayList<>();
+            for(Restaurante r : restaurantes){
+                for(Oferta of : r.getOfertaList()){
+                    ofertas.add(of);
+                }
+            }    
+            return ofertas;
         } finally {
             em.close();
         }
