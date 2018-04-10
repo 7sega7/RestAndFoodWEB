@@ -7,6 +7,7 @@
         <title>APLICACION INICIAL STRUTS MVC</title>
         <link rel="stylesheet" type="text/css" href="resources/styles/base.css" />
         
+        
         <html:base />
     </head>
     <body style="background-color: bisque">
@@ -23,7 +24,7 @@
             <html:text property="correo" size="30" />
             <br><br>
             <label for="contrasena">Contraseña:</label>
-            <html:text property="contrasena" size="30" />
+            <html:password property="contrasena" size="30" />
             </fieldset>
             <html:submit value="INICIAR SESION" />
         </html:form>  
