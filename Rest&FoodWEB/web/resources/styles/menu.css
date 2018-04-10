@@ -14,7 +14,7 @@ body {
     
     font-size: 1.8rem;
 	
-    background-color: #6A2FA5;
+    
 }
 
 
@@ -75,3 +75,20 @@ li a:hover {
     background-color: #4CAF50;
 }
 
+
+
+.page-nav2 {
+    
+    background-color: #1D1D1D;
+    
+    line-height: 6rem;
+    
+    font-size: 1.6rem;
+}
+
+.page-nav2 a {
+     
+    color: #FFFFFF;
+   
+    padding: 1rem;
+}
