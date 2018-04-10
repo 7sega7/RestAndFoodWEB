@@ -1,0 +1,45 @@
+
+
+html {
+    
+    font-size: 62.5%;
+    
+    font-family: Calibri, Arial, sans-serif;
+    
+    background-color: #9370DB;
+    
+}
+
+body {
+    
+    margin: 0;
+    
+    font-size: 1.8rem;
+}
+
+.container {
+    /* Separacion del contenido al borde */
+    padding: 0 1rem;
+    /* Anchura máxima 960 pixels*/
+    max-width: 96rem;
+    /* Centrar contenido horizontalmente */
+    margin: 0 auto;
+}
+
+
+.page-nav {
+    /* Color de fondo */
+    background-color: #1D1D1D;
+    /* Altura de la barra 60 pixels */
+    line-height: 6rem;
+    /* Tamaño de fuente por defecto 16 pixels*/
+    font-size: 1.6rem;
+}
+
+.page-nav a {
+    /* Color de texto blanco */
+    color: #FFFFFF;
+    /* Separacion hasta el margen del texto de los enlaces 10 pixels */
+    padding: 1rem;
+}
+
