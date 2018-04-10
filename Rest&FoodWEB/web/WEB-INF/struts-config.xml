@@ -83,7 +83,7 @@
         
         <action path="/datos_empresa" input="/empresa" name="Empresa"
                 scope="request" validate="true"
-                type="mvc.controller.actions.EmpresaeAction">
+                type="mvc.controller.actions.EmpresaAction">
             
             <forward name="busqueda_nombre_cliente_ok" path="/restaurante_cliente.jsp"/>
         </action>

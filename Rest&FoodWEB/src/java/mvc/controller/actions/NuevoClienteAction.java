@@ -23,6 +23,9 @@ public class NuevoClienteAction extends org.apache.struts.action.Action {
 
         String nombre = newclienteform.getNombre();
         String apellidos = newclienteform.getApellidos();
+        if(apellidos == null){
+            apellidos = "";
+        }
         String email = newclienteform.getEmail();
         String direccion = newclienteform.getDireccion();
         String ciudad = newclienteform.getCiudad();
@@ -41,7 +44,7 @@ public class NuevoClienteAction extends org.apache.struts.action.Action {
             controller.create(c);
 
             request.setAttribute("correo", c.getCorreoCliente());
-            request.setAttribute("contrasena", c.getContraseña());
+            request.setAttribute("contrasena", c.getContrasena());
             request.setAttribute("nombre", c.getNombreCliente());
             request.setAttribute("apell", c.getApellidosCliente());
             request.setAttribute("dire", c.getDireccionCliente());

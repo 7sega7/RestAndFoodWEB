@@ -17,7 +17,7 @@
             <th><h2>Cambie aqui sus datos de configuracion:</h2></th>
             <% Cliente c = (Cliente) request.getSession().getAttribute("usuario"); %>
             <tr><h4><td>Correo:</td><td><%= c.getCorreoCliente()%></td></h4></tr>
-            <tr><h4><td>Contraseña:</td><td> <%= c.getContraseña()%></td></h4></tr>
+            <tr><h4><td>Contraseña:</td><td> <%= c.getContrasena()%></td></h4></tr>
             <tr><h4><td>Nombre:</td><td> <%= c.getNombreCliente()%></td></h4></tr>
             <tr><h4><td>Apellidos:</td><td> <%= c.getApellidosCliente()%></td></h4></tr>
             <tr><h4><td>Direccion:</td><td> <%= c.getDireccionCliente()%></td></h4></tr>
