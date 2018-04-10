@@ -6,12 +6,16 @@
 package mvc.model.entidades;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -27,6 +31,12 @@ import javax.persistence.Table;
     ,@NamedQuery(name = "Oferta.findByTitulo", query = "SELECT DISTINCT o "
             + "FROM Oferta o WHERE o.titulo LIKE CONCAT('%',:titulo,'%')")})
 public class Oferta implements Serializable {
+
+    @JoinTable(name = "oferta_restaurante", joinColumns = {
+        @JoinColumn(name = "id_oferta", referencedColumnName = "id_oferta")}, inverseJoinColumns = {
+        @JoinColumn(name = "id_restaurante", referencedColumnName = "id_restaurante")})
+    @ManyToMany
+    private List<Restaurante> restauranteList;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -137,6 +147,14 @@ public class Oferta implements Serializable {
     @Override
     public String toString() {
         return "mvc.model.entidades.Oferta[ idOferta=" + idOferta + " ]";
+    }
+
+    public List<Restaurante> getRestauranteList() {
+        return restauranteList;
+    }
+
+    public void setRestauranteList(List<Restaurante> restauranteList) {
+        this.restauranteList = restauranteList;
     }
 
 }

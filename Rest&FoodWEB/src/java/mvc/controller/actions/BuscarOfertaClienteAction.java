@@ -3,14 +3,16 @@ package mvc.controller.actions;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import mvc.controller.dao.OfertaJpaController;
+import mvc.model.entidades.Cliente;
 import mvc.model.entidades.Oferta;
 import mvc.vista.formbeans.BuscarOfertaForm;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
-public class BuscarOfertaAction extends org.apache.struts.action.Action {
+public class BuscarOfertaClienteAction extends org.apache.struts.action.Action {
 
     @Override
     public ActionForward execute(ActionMapping mapping, ActionForm form,
@@ -19,7 +21,7 @@ public class BuscarOfertaAction extends org.apache.struts.action.Action {
         BuscarOfertaForm buscarForm = (BuscarOfertaForm) form;
 
         String busqueda = buscarForm.getBusqueda();
-
+        
         OfertaJpaController controller = new OfertaJpaController();
 
         List<Oferta> of = null;

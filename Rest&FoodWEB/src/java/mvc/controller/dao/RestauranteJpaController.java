@@ -64,6 +64,18 @@ public class RestauranteJpaController implements Serializable {
             em.close();
         }
     }
+    
+    public List<Restaurante> findRestaurantePostalAndCity(Integer postal, String ciudad) {
+        EntityManager em = getEntityManager();
+        try {
+            Query query = em.createNamedQuery("Restaurante.findByCodigoPostalAndCiudad");
+            query.setParameter("codigoPostal", postal);
+            query.setParameter("ciudad", ciudad);
+            return query.getResultList();
+        } finally {
+            em.close();
+        }
+    }
 
     public int getRestauranteCount() {
         EntityManager em = getEntityManager();

@@ -15,8 +15,8 @@
        </div>
 </nav>
     <% } else { %>
-    <a href="ofertas.jsp">OFERTAS CERCA DE TI </a>
-    <a href="restaurante.jsp">RESTAURANTES</a>
+    <a href="ofertas_cliente.jsp">OFERTAS CERCA DE TI </a>
+    <a href="restaurante_cliente.jsp">RESTAURANTES</a>
     <a href="cliente_ajustes.jsp">AJUSTES CLIENTE</a>
     <a href="logout.do">DESCONECTARSE</a>
 

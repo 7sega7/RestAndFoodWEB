@@ -11,6 +11,8 @@
         <form-bean name="BuscarRestaurante" type="mvc.vista.formbeans.BuscarRestauranteForm"/>
         <form-bean name="BuscarOferta" type="mvc.vista.formbeans.BuscarOfertaForm"/>
         <form-bean name="LoginCliente" type="mvc.vista.formbeans.LoginClienteForm"/>
+        <form-bean name="BuscarOfertaCliente" type="mvc.vista.formbeans.BuscarOfertaClienteForm"/>
+        <form-bean name="BuscarRestauranteCliente" type="mvc.vista.formbeans.BuscarRestauranteClienteForm"/>
     </form-beans>
     
     <global-exceptions>
@@ -56,6 +58,20 @@
                 type="mvc.controller.actions.BuscarRestauranteAction">
             
             <forward name="busqueda_nombre_ok" path="/restaurante.jsp"/>
+        </action>
+        
+        <action path="/busqueda_oferta_cliente" input="/ofertas_cliente" name="BuscarOfertaCliente"
+                scope="session" validate="false"
+                type="mvc.controller.actions.BuscarOfertaClienteAction">
+            
+            <forward name="busqueda_titulo_cliente_ok" path="/ofertas_cliente.jsp"/>
+        </action>
+        
+        <action path="/busqueda_restaurante_cliente" input="/restaurante_cliente" name="BuscarRestauranteCliente"
+                scope="session" validate="false"
+                type="mvc.controller.actions.BuscarRestauranteClienteAction">
+            
+            <forward name="busqueda_nombre_cliente_ok" path="/restaurante_cliente.jsp"/>
         </action>
         
         <action path="/logout" type="mvc.controller.actions.DesconectarAction"/>

@@ -1,3 +1,4 @@
+<%@page import="mvc.model.entidades.Cliente"%>
 <%@page import="mvc.controller.dao.RestauranteJpaController"%>
 <%@page import="mvc.model.entidades.Restaurante"%>
 <%@page import="mvc.model.entidades.Oferta"%>
@@ -23,29 +24,31 @@
             <html:submit value="BUSCAR" />
         </html:form>
         <ul>
-            <%  if (request.getAttribute("restaurante") != null) {
+            <%  if (request.getAttribute("restaurante_cliente") != null) {
                     List<Restaurante> restaurantesNombre = (List<Restaurante>) request.getAttribute("restaurante");
                     if (!restaurantesNombre.isEmpty()) {
 
                         out.println("BUSCANDO OFERTAS QUE COINDICAN CON: " + request.getAttribute("paramBusqueda"));
                         for (Restaurante r : restaurantesNombre) {
                             out.println("<li>Nombre del Restaurante: " + r.getNombre() + ", Direccion: "
-                                    + r.getDireccion() + ", Codigo Postal: " 
+                                    + r.getDireccion() + ", Codigo Postal: "
                                     + r.getCodigoPostal() + ", Ciudad: " + r.getCiudad() + "</li>");
                         }
                     } else {
-                        out.println("NO SE HA OBTENIDO NINGUN RESULTADO CON " + 
-                                request.getAttribute("paramBusqueda") + "\nPOR FAVOR, REVISE SU BUSQUEDA");
+                        out.println("NO SE HA OBTENIDO NINGUN RESULTADO CON "
+                                + request.getAttribute("paramBusqueda") + "\nPOR FAVOR, REVISE SU BUSQUEDA");
                     }
                 } else {
+                    Cliente c = (Cliente) request.getSession().getAttribute("usuario");
                     RestauranteJpaController controller = new RestauranteJpaController();
-                    List<Restaurante> restaurantesNombre = controller.findRestaurantes();
-
-                    for (Restaurante r : restaurantesNombre) {
-                            out.println("<li>Nombre del Restaurante: " + r.getNombre() + ", Direccion: "
-                                    + r.getDireccion() + ", Codigo Postal: " 
-                                    + r.getCodigoPostal() + ", Ciudad: " + r.getCiudad() + "</li>");
-                        }
+                    List<Restaurante> restaurantesCliente = 
+                            controller.findRestaurantePostalAndCity(c.getCodigoPostal(), c.getCiudadCliente());
+                    out.println("RESTAURANTES CERCA DE TI");
+                    for (Restaurante r : restaurantesCliente) {
+                        out.println("<li>Nombre del Restaurante: " + r.getNombre() + ", Direccion: "
+                                + r.getDireccion() + ", Codigo Postal: "
+                                + r.getCodigoPostal() + ", Ciudad: " + r.getCiudad() + "</li>");
+                    }
                 }
 
             %>

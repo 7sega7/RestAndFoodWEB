@@ -6,12 +6,16 @@
 package mvc.model.entidades;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -27,9 +31,15 @@ import javax.persistence.Table;
     , @NamedQuery(name = "Restaurante.findByIdRestaurante", query = "SELECT r FROM Restaurante r WHERE r.idRestaurante = :idRestaurante")
     , @NamedQuery(name = "Restaurante.findByDireccion", query = "SELECT r FROM Restaurante r WHERE r.direccion = :direccion")
     , @NamedQuery(name = "Restaurante.findByNombre", query = "SELECT DISTINCT r FROM Restaurante r WHERE r.nombre LIKE CONCAT('%',:nombre,'%')")
-    , @NamedQuery(name = "Restaurante.findByCodigoPostal", query = "SELECT r FROM Restaurante r WHERE r.codigoPostal = :codigoPostal")
+    , @NamedQuery(name = "Restaurante.findByCodigoPostalAndCiudad", query = "SELECT DISTINCT r FROM Restaurante r WHERE r.codigoPostal = :codigoPostal OR r.ciudad LIKE CONCAT('%',:ciudad,'%')")
     , @NamedQuery(name = "Restaurante.findByCiudad", query = "SELECT r FROM Restaurante r WHERE r.ciudad = :ciudad")})
 public class Restaurante implements Serializable {
+
+    @ManyToMany(mappedBy = "restauranteList")
+    private List<Oferta> ofertaList;
+    @JoinColumn(name = "id_empresa", referencedColumnName = "id_empresa")
+    @ManyToOne(optional = false)
+    private Empresa idEmpresa;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -128,6 +138,22 @@ public class Restaurante implements Serializable {
     @Override
     public String toString() {
         return "mvc.model.entidades.Restaurante[ idRestaurante=" + idRestaurante + " ]";
+    }
+
+    public List<Oferta> getOfertaList() {
+        return ofertaList;
+    }
+
+    public void setOfertaList(List<Oferta> ofertaList) {
+        this.ofertaList = ofertaList;
+    }
+
+    public Empresa getIdEmpresa() {
+        return idEmpresa;
+    }
+
+    public void setIdEmpresa(Empresa idEmpresa) {
+        this.idEmpresa = idEmpresa;
     }
     
 }

@@ -27,8 +27,8 @@
 
                         out.println("BUSCANDO OFERTAS QUE COINDICAN CON: " + request.getAttribute("paramBusqueda"));
                         for (Oferta of : ofertasTitulo) {
-                            out.println("<li>Titulo de la oferta: " + of.getTitulo() + " ,Tipo de oferta: "
-                                    + of.getTipoOferta() + " ,Fecha de Inicio: " + of.getFechaInicio() + "</li>");
+                            out.println("<li>Titulo de la oferta: " + of.getTitulo() + ", Tipo de oferta: "
+                                    + of.getTipoOferta() + ", Fecha de Inicio: " + of.getFechaInicio() + "</li>");
                         }
                     } else {
                         out.println("NO SE HA OBTENIDO NINGUN RESULTADO CON " + 
@@ -39,8 +39,8 @@
                     List<Oferta> ofertas = controller.findOfertas();
 
                     for (Oferta of : ofertas) {
-                        out.println("<li>Titulo de la oferta: " + of.getTitulo() + " ,Tipo de oferta: "
-                                    + of.getTipoOferta() + " ,Fecha de Inicio: " + of.getFechaInicio() + "</li>");
+                        out.println("<li>Titulo de la oferta: " + of.getTitulo() + ", Tipo de oferta: "
+                                    + of.getTipoOferta() + ", Fecha de Inicio: " + of.getFechaInicio() + "</li>");
 
                     }
                 }
