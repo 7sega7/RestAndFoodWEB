@@ -6,18 +6,23 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>APLICACION INICIAL STRUTS MVC</title>
         <link rel="stylesheet" type="text/css" href="resources/styles/base.css"/>
+        <a href="resources/styles/nuevo_cliente.scss"></a>
+        
     </head>
-    <body>
-        
+    <body style="background-color: bisque">
+        <header>
         <jsp:include page="header.jsp" flush="true" />
-        
-        
+        </header>
+        <br>
+        <br>
         
         <header class="page-header">
             <div class="container">
         <h1> Creación de nuevo Cliente</h1>
             </div>
         </header>
+        
+        
         <%-- Mostrar errores de validacion si los hay --%>
         <html:errors />
         
@@ -25,6 +30,11 @@
             Creacion formulario persistente con reescritura de URL
             Ponemos el cursor (foco) en el campo nombre
         --%>
+        
+    
+        
+        <br>
+        <br>
         <section class="page-section">
             <div class="container">
                 

@@ -42,7 +42,7 @@
                 <th>Nombre Restaurante</th>
                 <th>Dirección</th>
                 <th>Codigo Postal</th>
-                <th>Ciudada</th>
+                <th>Ciudad</th>
                 </tr>
         
             <%  if (request.getAttribute("restaurante") != null) {
