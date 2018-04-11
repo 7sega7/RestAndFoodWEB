@@ -7,20 +7,34 @@
 <html:html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>APLICACION INICIAL STRUTS MVC</title>
+        <title>OFERTAS DE RESTANDFOOD</title>
+        
+        <link href="resources/styles/tablas.css" rel="stylesheet" type="text/css"/>
+        <link href="resources/styles/base.css" rel="stylesheet" type="text/css"/>
+        
         <html:base />
     </head>
     <body style="background-color: bisque">
         <html:errors />
+        <header>
         <jsp:include page="header.jsp" flush="true" />
-
+        </header>
+        
+        <br>
+        <br>
+        <div class="buscador" align="center">
         <html:form action="busqueda_oferta.do" focus="busqueda" method="post">
             <label for="busqueda">Introduce aqui la palabra clave a buscar en las ofertas:</label>
             <html:text property="busqueda" size="30" />
             <br><br>
             <html:submit value="BUSCAR" />
         </html:form>
-            <table border="1">
+        </div>
+            
+            
+            <br>
+            <div class="tabla-ofertas" align="center">
+                <table class="ofertas">
                 <tr>
                 <th>Titulo de la oferta</th>
                 <th>Tipo de oferta</th>
@@ -59,7 +73,7 @@
 
             %>
         </table>
-        
+            </div> 
         
     </body>
 </html:html>
