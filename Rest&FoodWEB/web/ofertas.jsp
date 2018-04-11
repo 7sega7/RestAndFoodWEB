@@ -20,7 +20,12 @@
             <br><br>
             <html:submit value="BUSCAR" />
         </html:form>
-        <ul>
+            <table border="1">
+                <tr>
+                <th>Titulo de la oferta</th>
+                <th>Tipo de oferta</th>
+                <th>Fecha de inicio</th>
+                </tr>
             <%  if (request.getAttribute("ofertas") != null) {
                     List<Oferta> ofertasTitulo = (List<Oferta>) request.getAttribute("ofertas");
                     if (!ofertasTitulo.isEmpty()) {
@@ -38,14 +43,23 @@
                     OfertaJpaController controller = new OfertaJpaController();
                     List<Oferta> ofertas = controller.findOfertas();
 
+                    
                     for (Oferta of : ofertas) {
-                        out.println("<li>Titulo de la oferta: " + of.getTitulo() + ", Tipo de oferta: "
-                                    + of.getTipoOferta() + ", Fecha de Inicio: " + of.getFechaInicio() + "</li>");
+                        out.println("<tr>" + 
+                                        "<td>" + of.getTitulo() + "</td>" +
+                                        "<td>" + of.getTipoOferta() + "</td>" +
+                                        "<td>" + of.getFechaInicio() + "</td>" +
+                                    "</tr>" );
+                                
+                                
+                                
 
                     }
                 }
 
             %>
-        </ul>
+        </table>
+        
+        
     </body>
 </html:html>
