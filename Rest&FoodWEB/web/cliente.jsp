@@ -5,12 +5,13 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>APLICACION INICIAL STRUTS MVC</title>
-        <link rel="stylesheet" type="text/css" href="resources/styles/base.css" />
+        <link rel="stylesheet" type="text/css" href="resources/styles/menu.css" />
+        
         
         
         <html:base />
     </head>
-    <body style="background-color: bisque">
+    <body>
         <html:errors />
         <jsp:include page="header.jsp" flush="true" />
         

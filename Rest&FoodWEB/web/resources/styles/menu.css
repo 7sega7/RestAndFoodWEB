@@ -31,7 +31,7 @@ body {
 
 .page-nav {
     
-    background-color: #1D1D1D;
+    background-color: #070B19;
     
     line-height: 6rem;
     
@@ -74,6 +74,9 @@ li a:hover {
 .active {
     background-color: #4CAF50;
 }
+
+
+
 
 
 

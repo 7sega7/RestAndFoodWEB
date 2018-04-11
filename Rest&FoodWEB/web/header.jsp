@@ -1,6 +1,11 @@
 <html:html>
 
+    <head>
 <link rel="stylesheet" type="text/css" href="resources/styles/menu.css">
+
+    </head>
+    <body>
+
 <nav class="page-nav">
     <div class="container">
        <ul id="menu">
@@ -15,14 +20,18 @@
        </div>
 </nav>
     <% } else { %>
-    <a href="ofertas_cliente.jsp">OFERTAS CERCA DE TI </a>
-    <a href="restaurante_cliente.jsp">RESTAURANTES</a>
-    <a href="cliente_ajustes.jsp">AJUSTES CLIENTE</a>
-    <a href="logout.do">DESCONECTARSE</a>
-
+    <nav class="page-nav2">
+        <div class="container">
+            <ul>  
+                <li><a href="ofertas_cliente.jsp">OFERTAS CERCA DE TI </a></li>
+                <li><a href="restaurante_cliente.jsp">RESTAURANTES</a></li>
+                <li><a href="cliente_ajustes.jsp">AJUSTES CLIENTE</a></li>
+                <li><a href="logout.do">DESCONECTARSE</a></li>
+        </div>
+    </nav>
     <% }%>
-
-
     
+
+</body>  
 
 </html:html>

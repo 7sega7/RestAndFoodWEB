@@ -7,7 +7,7 @@
         <title>APLICACION INICIAL STRUTS MVC</title>
         <link rel="stylesheet" type="text/css" href="resources/styles/base.css" />
     </head>
-    <body style="background-color: bisque">
+    <body>
         
             <jsp:include page="header.jsp" flush="true" />
         
