@@ -66,7 +66,7 @@ public class ClienteJpaController implements Serializable {
         try {
             Query query = em.createNamedQuery("Cliente.loginCliente");
             query.setParameter("correoCliente", correo);
-            query.setParameter("contrasena", contrasena);
+            query.setParameter("contraseña", contrasena);
             Cliente c = (Cliente) query.getSingleResult();
             return c;
         } finally {
