@@ -46,8 +46,11 @@
 
                         out.println("BUSCANDO OFERTAS QUE COINDICAN CON: " + request.getAttribute("paramBusqueda"));
                         for (Oferta of : ofertasTitulo) {
-                            out.println("<li>Titulo de la oferta: " + of.getTitulo() + ", Tipo de oferta: "
-                                    + of.getTipoOferta() + ", Fecha de Inicio: " + of.getFechaInicio() + "</li>");
+                            out.println("<tr>" + 
+                                        "<td>" + of.getTitulo() + "</td>" +
+                                        "<td>" + of.getTipoOferta() + "</td>" +
+                                        "<td>" + of.getFechaInicio() + "</td>" +
+                                    "</tr>");
                         }
                     } else {
                         out.println("NO SE HA OBTENIDO NINGUN RESULTADO CON " + 
